@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bottoes.dart';
 
 void main() {
   runApp(const DolceSonhoConfeitaria());
@@ -12,11 +13,23 @@ class DolceSonhoConfeitaria extends StatefulWidget {
 }
 
 class DolceSonhoState extends State<DolceSonhoConfeitaria> {
+  void themaClaro() {
+    setState(() {
+      Brightness.light;
+    });
+  }
+
+  void themaEscuro() {
+    setState(() {
+      Brightness.dark;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        backgroundColor: Color.fromRGBO(255, 228, 227, 1),
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.amber),
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -34,7 +47,7 @@ class DolceSonhoState extends State<DolceSonhoConfeitaria> {
           ),
         ),
         body: Container(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: [
               Center(
@@ -44,25 +57,34 @@ class DolceSonhoState extends State<DolceSonhoConfeitaria> {
                   height: 300,
                 ),
               ),
-              ElevatedButton(
+              Bottoes(
+                palavra: 'Catálogo de Produtos',
                 onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
-                      Icons.check,
-                      size: 50,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      'Catálogo',
-                      style: TextStyle(fontSize: 30),
-                    )
-                  ],
-                ),
-              )
+              ),
+              Bottoes(
+                palavra: 'Fazer um Orçamento',
+                onPressed: () {},
+              ),
+              Bottoes(
+                palavra: 'Receber Pagamentos',
+                onPressed: () {},
+              ),
+              Bottoes(
+                palavra: 'Cadastro de Pedidos',
+                onPressed: () {},
+              ),
+              Bottoes(
+                palavra: 'Cadastro de Clientes',
+                onPressed: () {},
+              ),
+              Bottoes(
+                palavra: 'Situação Financeira',
+                onPressed: () {},
+              ),
+              Bottoes(
+                palavra: 'Planejamento Anual',
+                onPressed: () {},
+              ),
             ],
           ),
         ),
